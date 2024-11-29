@@ -47,14 +47,12 @@
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="{% url 'home' %}">Главная страница</a></li>
-            <li><a href="{% url 'about' %}">Обо мне</a></li>
-            <li><a href="{% url 'posts' %}">Посты</a></li>
-            <li><a href="{% url 'communities' %}">Группы</a></li>
-        </ul>
-    </nav>
+        <header>
+            <a href="/">Главная страница</a>
+            <a href="/about">Обо мне</a>
+            <a href="/posts">Посты</a>
+            <a href="/communities">Группы</a>
+        </header>
     <main>{% block content %} {% endblock %}</main>
 </body>
 </html>

@@ -1,6 +1,7 @@
+from django.contrib import admin
 from django.urls import path
-from .views import communities_view
+from . import views
 
 urlpatterns = [
-    path('', communities_view, name='communities'),
+    path('', views.communities_list),
 ]
