@@ -1,9 +1,28 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Document</title>
+</head>
+<body>
+    {% block title %} communities {% endblock %}
+    {% block content %}
+    <section>
+        <h1>communities</h1>
+        <a href="{% url 'communities' %}">Все посты</a>
 
-{% block title %}
-        группы
-{% endblock %}
-
-{% block content %}
-    <h1>группы</h1>
-{% endblock %}
+    
+        {% for communities in communities %}
+        <article class="communities">
+            <h2>{{ communities.title }}</h2>
+            <p>{{ communities.date }}</p>
+            <p>{{ communities.body }}</p>
+        </article>
+        {% endfor %}
+    </section>
+    {% endblock %}
+</body>
+</html>

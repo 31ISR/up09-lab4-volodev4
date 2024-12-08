@@ -1,29 +1,30 @@
-{% extends 'layout.html' %}
-{% block title %} Posts {% endblock %}
-{% block content %}
-<section>
-    <h1>Posts</h1>
-    {% for post in posts %}
-    <article class="post">
-        <h2>
-            <a href="{% url 'posts:page' slug=post.slug %}"> {{ post.title }} </a>
-        </h2>
-        <p>{{ post.date }}</p>
-        <p>{{ post.body }}</p>
-    </article>
-    {% endfor %}
-</section>
-{% endblock %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Document</title>
+</head>
+<body>
+    {% block title %} Posts {% endblock %} 
+    {% block content %}
+    <section>
+        <h1>Posts</h1>
+        <a href="{% url 'posts' %}">Все посты</a>
 
-
-{% extends 'layout.html' %}
-{% block title %} {{ post.title }} {% endblock %}
-{% block content %}
-<section>
-    <h1>{{ post.title }}</h1>
-    <p>{{ post.date }}</p>
-    <p>{{ post.body }}</p>
-</section>
-{% endblock %}
+    
+        {% for post in posts %}
+        <article class="post">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.date }}</p>
+            <p>{{ post.body }}</p>
+        </article>
+        {% endfor %}
+    </section>
+    {% endblock %}
+</body>
+</html>
 
 
