@@ -1,9 +1,29 @@
 {% extends 'layout.html' %}
-
-{% block title %}
-    Посты
-{% endblock %}
-
+{% block title %} Posts {% endblock %}
 {% block content %}
-    <h1>посты</h1>
+<section>
+    <h1>Posts</h1>
+    {% for post in posts %}
+    <article class="post">
+        <h2>
+            <a href="{% url 'posts:page' slug=post.slug %}"> {{ post.title }} </a>
+        </h2>
+        <p>{{ post.date }}</p>
+        <p>{{ post.body }}</p>
+    </article>
+    {% endfor %}
+</section>
 {% endblock %}
+
+
+{% extends 'layout.html' %}
+{% block title %} {{ post.title }} {% endblock %}
+{% block content %}
+<section>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.date }}</p>
+    <p>{{ post.body }}</p>
+</section>
+{% endblock %}
+
+
