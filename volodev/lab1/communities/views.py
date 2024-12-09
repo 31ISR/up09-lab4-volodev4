@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Community
 
 def communities_list(req):
-return render(req, 'Community/communities_list.html')
+    return render(req, 'Community/communities_list.html')
 
 def communities_list(request):
     communities = Community.objects.all()

@@ -8,16 +8,16 @@
     <title>Document</title>
 </head>
 <body>
-    {% block title %} Posts {% endblock %} 
+    {% extends 'layout.html' %} {% block title %} Posts {% endblock %}
     {% block content %}
     <section>
         <h1>Posts</h1>
-        <a href="{% url 'posts' %}">Все посты</a>
+        <a href="{% url 'posts:list' %}">Все посты</a>
 
     
         {% for post in posts %}
         <article class="post">
-            <h2>{{ post.title }}</h2>
+            <h2><a href="{%  url 'posts:page' slug=post.slug %}"> </a>{{ post.title }}</h2>
             <p>{{ post.date }}</p>
             <p>{{ post.body }}</p>
         </article>
