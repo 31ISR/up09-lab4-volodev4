@@ -50,10 +50,12 @@
         <header>
             <a href="/">Главная страница</a>
             <a href="/about">Обо мне</a>
-            <a href="/posts">Посты</a>
-            <a href="/communities">Группы</a>
+            <a href="{% url 'posts:list' %}"> Посты </a>
+            <a href="{% url 'communities:list' %}">Группы</a>
             
         </header>
-    <main>{% block content %} {% endblock %}</main>
+
+    <main>{% block content %} 
+        {% endblock %}</main>
 </body>
 </html>
