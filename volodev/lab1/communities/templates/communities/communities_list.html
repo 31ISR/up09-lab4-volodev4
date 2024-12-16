@@ -3,13 +3,11 @@
 {% block content %}
 <section>
   <h1>Сommunities</h1>
-  <a href="{% url 'communities:list' %}">Все Сообщества</a>
-
   {% for communitie in communities %}
   <article class="communitie">
     <h2>
       <a href="{%  url 'communities:page' slug=communitie.slug  %}">
-        {{ communitie.title }}
+        {{ communitie.name}}
       </a>
     </h2>
     <p>{{ communitie.date }}</p>
