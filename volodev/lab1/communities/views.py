@@ -1,15 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Communitie
 from django.contrib.auth.decorators import login_required
 from . import forms
 
 def communities_list(request):
     communities = Communitie.objects.all().order_by('-date')
-    return render(request, 'Communities/communities_list.html', {'communities': communities})
+    return render(request, 'communities/communities_list.html', {'communities': communities})
 
 def communitie_page(request, slug):
-    communities = Communitie.objects.get(slug=slug)
-    return render(request, 'communities/communitie_page.html', {'communitie': communities})
+    communitie = Communitie.objects.get(slug=slug)
+    return render(request, 'communities/communitie_page.html', {'communitie': communitie})
 
 @login_required(login_url="/users/login/")
 def communitie_new(request):
